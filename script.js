@@ -1,6 +1,6 @@
 //your JS code here. If required.
 
-  const bands = [
+ const bands = [
       'The Plot in You',
       'The Devil Wears Prada',
       'Pierce the Veil',
