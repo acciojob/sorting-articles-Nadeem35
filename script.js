@@ -1,6 +1,6 @@
 //your JS code here. If required.
 
- const bands = [
+  const bands = [
       'The Plot in You',
       'The Devil Wears Prada',
       'Pierce the Veil',
@@ -16,22 +16,20 @@
       'An Old Dog'
     ];
 
-    // Function to strip 'a', 'an', 'the' from start for sorting
-    function stripArticle(bandName) {
-      return bandName.replace(/^(a |an |the )/i, '').trim();
+    // Helper to remove "a", "an", "the" from the beginning
+    function stripArticle(name) {
+      return name.replace(/^(a |an |the )/i, '').trim();
     }
 
-    // Sort ignoring articles
-    const sortedBands = bands.slice().sort((a, b) => {
-      const bandA = stripArticle(a).toLowerCase();
-      const bandB = stripArticle(b).toLowerCase();
-      return bandA.localeCompare(bandB);
+    // Sort bands ignoring leading articles
+    const sortedBands = bands.sort((a, b) => {
+      return stripArticle(a).localeCompare(stripArticle(b));
     });
 
-    // Render to UL
-    const ul = document.getElementById('band');
+    // Render to the UL
+    const bandList = document.getElementById('band');
     sortedBands.forEach(band => {
       const li = document.createElement('li');
       li.textContent = band;
-      ul.appendChild(li);
+      bandList.appendChild(li);
     });
